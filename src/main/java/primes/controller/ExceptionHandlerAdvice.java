@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 @ControllerAdvice(annotations = RestController.class)
 public class ExceptionHandlerAdvice {
 
-    @ExceptionHandler(IllegalArgumentException.class)
-    void handleIllegalArgumentException(HttpServletResponse response) throws IOException {
-        response.sendError(HttpStatus.BAD_REQUEST.value());
-    }
+	@ExceptionHandler(IllegalArgumentException.class)
+	void handleIllegalArgumentException(HttpServletResponse response) throws IOException {
+		response.sendError(HttpStatus.BAD_REQUEST.value());
+	}
 
 }

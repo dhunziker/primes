@@ -15,17 +15,12 @@ import primes.service.PrimeService;
 @RequestMapping(value = "/primes", method = GET)
 public class PrimeController {
 
-    @Autowired
-    private PrimeService primeService;
+	@Autowired
+	private PrimeService primeService;
 
-    @RequestMapping(value = "/{initial}")
-    public @ResponseBody Result primes(@PathVariable("initial") int initial) throws Exception {
-        return primeService.sieveOfEratosthenes(initial);
-    }
-
-    @RequestMapping(value = "/clearCache")
-    public void clearCache() throws Exception {
-        primeService.clearCache();
-    }
+	@RequestMapping(value = "/{initial}")
+	public @ResponseBody Result primes(@PathVariable("initial") int initial) throws Exception {
+		return primeService.sieveOfEratosthenes(initial);
+	}
 
 }
