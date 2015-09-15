@@ -1,0 +1,48 @@
+---
+spring:
+    profiles:
+        active: local
+
+info:
+    build:
+        artifact: $project.artifactId$
+        name: $project.name$
+        description: $project.description$
+        version: $project.version$
+
+server:
+    port: 8090
+    address: localhost
+    #address: 10.33.84.227 # a301-5161-6156.ldn.swissbank.com
+    #address: 172.16.157.40 # xldn7819vdap.ldn.swissbank.com
+    session-timeout: 1800 # Default (30 min), in seconds
+    tomcat:
+        basedir: ./
+        # https://tomcat.apache.org/tomcat-8.0-doc/config/valve.html#Access_Logging
+        access-log-pattern: combined
+        access-log-enabled: false
+
+logging:
+    # This doesn't work for Log4j2, set the system property LOG_FILE instead
+    #file: logs/common-api.log
+
+monitoring:
+    melody-enabled: false
+
+security:
+    auth-enabled: false
+    access-roles:
+        instrument: IDP_API_INSTRUMENT_READER
+        business_structure: IDP_API_BOOK_READER
+
+http:
+    pool-size: 5
+    ssl-keystore:
+        location: cacerts.jks
+        password: changeit
+
+rcas:
+    endpoint-url: https://rcas.smlogin.ibb.ubstest.net/loginrouter/rcas_v1_50
+    app-guid: RCAS_IDP
+    username: hunzikde
+    password: yKcB2WaMx6f1Sd1kjdCBsA==
